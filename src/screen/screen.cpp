@@ -32,9 +32,9 @@ void Screen::back()
 
 void Screen::up()
 {   // move cursor_ up one row of screen
-	// wrapping around
+	// do not wrap around
 	if ( row() == 1 ) // at top?
-		cursor_=(width_ * width_) -width_;
+		cerr << "Screen::up - Cannot wrap around in a vertical direction" << endl;
 	else
 		cursor_ -= width_;
 
@@ -43,9 +43,9 @@ void Screen::up()
 
 void Screen::down()
 {   // move cursor_ down one row of screen
-	// wraping around
+	// do not wrap around
 	if ( row() == height_ ) // at bottom?
-		cursor_=0;   // start at the beginning
+		cerr << "Screen::down - Cannot wrap around in a vertical direction" << endl;
 	else
 		cursor_ += width_;
 
@@ -161,7 +161,7 @@ bool Screen::checkRange( string::size_type row, string::size_type col ) const
 	{
 		cerr << "Screen coordinates ("<< row << ", " << col << " ) out of bounds.\n";
 		return false;
-	}   //
+	}
 	return true;
 }
 
@@ -176,3 +176,26 @@ string::size_type Screen::row() const
 	return (cursor_ + width_)/width_;
 }
 
+void Screen::square(int row, int col, int size_)
+{
+    //position of the square changes depending on the (row,col) coordinate
+    //checking if dimensions are with range
+    //since we are generating a square, we therefore avoing creating a single point where rows=columns=size
+   if(checkRange(row,col)==true && row!=size_)  // using the given function to check the range specified
+   {
+       for(int i=row;i<=size_;i++)
+    {
+        for(int j=col;j<=size_;j++)
+        {
+            if(i==row || i==size_ || j==col || j==size_)
+            {   //
+                move(i,j);
+                set('*');
+            }
+        }
+    }
+    display();     // displaying output
+   }
+   else
+     cerr<< "coordinates out of bound \n";
+}

@@ -21,7 +21,10 @@ public:
 	string::size_type height() const { return height_; }
 	// get the Screen's width
 	string::size_type width() const { return width_; }
-
+    // generate square
+    void square(int,int,int);
+    //check square dimensions
+    //bool checker(string::size_type,string::size_type,string::size_type);
 	// place the cursor at the top-left corner of the screen
 	void home() { cursor_ = 0;  return; }
 	// place the cursor at the bottom-right corner of the screen
@@ -60,14 +63,14 @@ private:
 	// constants
 	// 0 represents the top-left screen element
 	const string::size_type TOP_LEFT = 0;
-    //A
+
 	// private member functions
 	string::size_type remainingSpace() const;
 	string::size_type row() const;
 
 	// private data members
 	// (using a trailing underscore is a naming convention for private data - not a requirement)
-
+        //
 	// number of Screen rows
 	string::size_type height_;
 	// number of Screen columns
