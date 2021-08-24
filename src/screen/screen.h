@@ -12,6 +12,8 @@ using namespace std;
 // *size* of any string that can be held by the string class as well as any index into
 // the string.
 
+//
+
 class Screen {
 public:
 	// Screen's constructor
@@ -21,10 +23,7 @@ public:
 	string::size_type height() const { return height_; }
 	// get the Screen's width
 	string::size_type width() const { return width_; }
-    // generate square
-    void square(int,int,int);
-    //check square dimensions
-    //bool checker(string::size_type,string::size_type,string::size_type);
+
 	// place the cursor at the top-left corner of the screen
 	void home() { cursor_ = 0;  return; }
 	// place the cursor at the bottom-right corner of the screen

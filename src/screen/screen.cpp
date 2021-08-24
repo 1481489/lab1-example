@@ -176,26 +176,3 @@ string::size_type Screen::row() const
 	return (cursor_ + width_)/width_;
 }
 
-void Screen::square(int row, int col, int size_)
-{
-    //position of the square changes depending on the (row,col) coordinate
-    //checking if dimensions are with range
-    //since we are generating a square, we therefore avoing creating a single point where rows=columns=size
-   if(checkRange(row,col)==true && row!=size_)  // using the given function to check the range specified
-   {
-       for(int i=row;i<=size_;i++)
-    {
-        for(int j=col;j<=size_;j++)
-        {
-            if(i==row || i==size_ || j==col || j==size_)
-            {   //
-                move(i,j);
-                set('*');
-            }
-        }
-    }
-    display();     // displaying output
-   }
-   else
-     cerr<< "coordinates out of bound \n";
-}
