@@ -32,9 +32,9 @@ void Screen::back()
 
 void Screen::up()
 {   // move cursor_ up one row of screen
-	// do not wrap around
+	// wrapping around
 	if ( row() == 1 ) // at top?
-		cerr << "Screen::up - Cannot wrap around in a vertical direction" << endl;
+		cursor_=(width_ * width_) -width_;
 	else
 		cursor_ -= width_;
 
@@ -43,9 +43,9 @@ void Screen::up()
 
 void Screen::down()
 {   // move cursor_ down one row of screen
-	// do not wrap around
+	// wraping around
 	if ( row() == height_ ) // at bottom?
-		cerr << "Screen::down - Cannot wrap around in a vertical direction" << endl;
+		cursor_=0;   // start at the beginning
 	else
 		cursor_ += width_;
 
@@ -161,12 +161,12 @@ bool Screen::checkRange( string::size_type row, string::size_type col ) const
 	{
 		cerr << "Screen coordinates ("<< row << ", " << col << " ) out of bounds.\n";
 		return false;
-	}
+	}   //
 	return true;
 }
 
 string::size_type Screen::remainingSpace() const
-{   // includes current position kk
+{   // includes current position
 	auto size = width_ * height_;
 	return(size - cursor_);
 }

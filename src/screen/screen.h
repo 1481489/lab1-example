@@ -12,8 +12,6 @@ using namespace std;
 // *size* of any string that can be held by the string class as well as any index into
 // the string.
 
-enum Direction {END, UP, DOWN, BACK, FORWARD, HOME};
-
 class Screen {
 public:
 	// Screen's constructor
@@ -39,8 +37,6 @@ public:
 	// move the cursor to the specified row and column
 	void move(string::size_type row, string::size_type col);
 
-    void move(Direction dir);  // OVERLOADING THE FUNCTION
-
 	// get the character at the cursor's current position
 	char get() const { return _screen[cursor_]; }
 	// get the character at the specified row and column
@@ -64,11 +60,11 @@ private:
 	// constants
 	// 0 represents the top-left screen element
 	const string::size_type TOP_LEFT = 0;
-
+    //A
 	// private member functions
 	string::size_type remainingSpace() const;
 	string::size_type row() const;
-        //
+
 	// private data members
 	// (using a trailing underscore is a naming convention for private data - not a requirement)
 
