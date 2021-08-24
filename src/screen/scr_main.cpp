@@ -13,7 +13,7 @@ int main()
 	myScreen.set('*');
 	myScreen.move(3,3);
 	myScreen.set("---");
-
+        //
 	myScreen.display();
 	cout << endl;
 
