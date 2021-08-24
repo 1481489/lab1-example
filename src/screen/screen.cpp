@@ -12,7 +12,7 @@ Screen::Screen(string::size_type height, string::size_type width, char bkground)
 void Screen::forward()
 {   // advance cursor_ one screen element
 	++cursor_;
-   //
+     // 
 	// wrap around if the cursor_ is at the end of the screen
 	if ( cursor_ == _screen.size()) home();
 

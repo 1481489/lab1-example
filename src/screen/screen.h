@@ -16,12 +16,13 @@ class Screen {
 public:
 	// Screen's constructor
 	Screen(string::size_type height, string::size_type width, char bkground = '#');
-
+    // 
+	// In this case const ensures that no changes in the program affect the value of height and width, this is because intead of operating on height itself. we call the height function which is prevented by the const keyword to chaange the value of either height or width
 	// get the Screen's height
 	string::size_type height() const { return height_; }
 	// get the Screen's width
 	string::size_type width() const { return width_; }
-    //bool checker(string::size_type,string::size_type,string::size_type);
+
 	// place the cursor at the top-left corner of the screen
 	void home() { cursor_ = 0;  return; }
 	// place the cursor at the bottom-right corner of the screen
@@ -36,7 +37,7 @@ public:
 	void down();
 	// move the cursor to the specified row and column
 	void move(string::size_type row, string::size_type col);
-
+    //in this case the const is used to prevent change in the position of the cursor by the get function, all it does is take the position and return it without acting on it
 	// get the character at the cursor's current position
 	char get() const { return _screen[cursor_]; }
 	// get the character at the specified row and column
