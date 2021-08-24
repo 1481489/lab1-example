@@ -12,12 +12,13 @@ using namespace std;
 // *size* of any string that can be held by the string class as well as any index into
 // the string.
 
+enum Direction {END, UP, DOWN, BACK, FORWARD, HOME};
+
 class Screen {
 public:
 	// Screen's constructor
 	Screen(string::size_type height, string::size_type width, char bkground = '#');
-    // 
-	// In this case const ensures that no changes in the program affect the value of height and width, this is because intead of operating on height itself. we call the height function which is prevented by the const keyword to chaange the value of either height or width
+
 	// get the Screen's height
 	string::size_type height() const { return height_; }
 	// get the Screen's width
@@ -37,7 +38,9 @@ public:
 	void down();
 	// move the cursor to the specified row and column
 	void move(string::size_type row, string::size_type col);
-    //in this case the const is used to prevent change in the position of the cursor by the get function, all it does is take the position and return it without acting on it
+
+    void move(Direction dir);  // OVERLOADING THE FUNCTION
+
 	// get the character at the cursor's current position
 	char get() const { return _screen[cursor_]; }
 	// get the character at the specified row and column
@@ -65,7 +68,7 @@ private:
 	// private member functions
 	string::size_type remainingSpace() const;
 	string::size_type row() const;
-
+        //
 	// private data members
 	// (using a trailing underscore is a naming convention for private data - not a requirement)
 

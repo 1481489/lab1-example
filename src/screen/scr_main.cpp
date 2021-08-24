@@ -16,7 +16,7 @@ int main()
 
 	myScreen.display();
 	cout << endl;
-    //
+        //
 	myScreen.reSize(16,16);
 	myScreen.display();
 	myScreen.clear(' ');

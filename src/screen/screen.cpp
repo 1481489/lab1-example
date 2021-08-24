@@ -12,7 +12,7 @@ Screen::Screen(string::size_type height, string::size_type width, char bkground)
 void Screen::forward()
 {   // advance cursor_ one screen element
 	++cursor_;
-     // 
+
 	// wrap around if the cursor_ is at the end of the screen
 	if ( cursor_ == _screen.size()) home();
 
@@ -166,7 +166,7 @@ bool Screen::checkRange( string::size_type row, string::size_type col ) const
 }
 
 string::size_type Screen::remainingSpace() const
-{   // includes current position
+{   // includes current position kk
 	auto size = width_ * height_;
 	return(size - cursor_);
 }
